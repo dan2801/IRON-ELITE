@@ -8,7 +8,7 @@ Desde PowerShell, en la carpeta del proyecto, con Python 3.10 o superior:
 
 ```powershell
 py -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install "Flask>=3.1,<4"
 .\iniciar-lan.cmd
 ```
 
@@ -35,7 +35,17 @@ git remote add origin https://github.com/TU_USUARIO/iron-elite.git
 git push -u origin main
 ```
 
-GitHub guardará el código. Para publicar la aplicación en internet se requiere un servicio que ejecute Python y Flask.
+## Publicar la demo en GitHub Pages
+
+En **Settings → Pages**, elige **Deploy from a branch**, selecciona `main` y `/(root)`, y guarda. Abre la URL que muestra GitHub Pages para ver el sitio.
+
+Después de editar el contenido o la plantilla, regenera el HTML desde la carpeta del proyecto y sube el `index.html` actualizado:
+
+```powershell
+.\.venv\Scripts\python.exe exportar_html.py
+```
+
+GitHub Pages sirve el HTML generado y los archivos de `frontend/static/`. El servidor Flask se usa para el desarrollo local.
 
 ## Personalizar
 
