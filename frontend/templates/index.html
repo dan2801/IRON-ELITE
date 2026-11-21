@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if site.demo %}<meta name="robots" content="noindex">{% endif %}
+  <meta name="description" content="{{ site.portada.descripcion }}">
+  <title>{{ site.marca }} | Seguridad privada</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+  <script defer src="{{ url_for('static', filename='menu.js') }}"></script>
+</head>
+<body id="inicio">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="header">
+    <div class="wrap header-row">
+      <a class="brand" href="#inicio">
+        {% if site.portada.logo %}
+        <img class="brand-logo" src="{{ url_for('static', filename=site.portada.logo) }}" alt="">
+        {% else %}
+        <span class="mark" aria-hidden="true">IE</span>
+        {% endif %}
+        <span>{{ site.marca }}<small>Seguridad privada</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menú</button>
+      <nav id="nav" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#empresa">Quiénes somos</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#contacto">Contacto</a>
+        <a class="button compact" href="{{ whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido">
+    <section class="hero" aria-labelledby="titulo">
+      <img class="hero-photo" src="{{ url_for('static', filename=site.portada.imagen) }}" alt="" fetchpriority="high">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Guardias de seguridad</p>
+        <h1 id="titulo">{{ site.portada.titulo }}</h1>
+        <p class="hero-copy">{{ site.portada.descripcion }}</p>
+        <div class="actions">
+          <a class="button" href="{{ whatsapp }}" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+          <a class="button outline" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+    <section id="servicios" class="section wrap">
+      <p class="eyebrow">Servicios</p>
+      <h2>Seguridad para tu operación</h2>
+      <div class="cards">
+        {% for servicio in site.servicios %}
+        <article class="card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          {% if servicio.icono == "acceso" %}
+            <path d="M5 21h14M7 21V3h10v18m-4-9h1"/>
+          {% elif servicio.icono == "ronda" %}
+            <path d="M20 10a8 8 0 1 0 0 4M17 10h4V6M12 7v5l3 2"/>
+          {% else %}
+            <path d="M12 3 4 6v5c0 5 4 8 8 10 4-2 8-5 8-10V6zM8 12l3 3 5-6"/>
+          {% endif %}
+          </svg>
+          <h3>{{ servicio.titulo }}</h3>
+          <p>{{ servicio.descripcion }}</p>
+        </article>
+        {% endfor %}
+      </div>
+      {% if site.demo %}<p class="demo-note">Para la presentación · Estos servicios son ejemplos. Aquí se puede colocar el catálogo oficial.</p>{% endif %}
+    </section>
+    <section id="empresa" class="about">
+      <div class="wrap section about-grid">
+        <div>
+          <h2>{{ site.empresa.titulo }}</h2>
+          <p>{{ site.empresa.descripcion }}</p>
+          <p>{{ site.empresa.proposito }}</p>
+        </div>
+        {% if site.portada.logo %}
+        <div class="brand-panel" aria-hidden="true">
+          <img src="{{ url_for('static', filename=site.portada.logo) }}" alt="" width="140" height="145" loading="lazy">
+          <span>{{ site.marca }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    <section id="objetivos" class="section wrap">
+      <h2>Nuestros objetivos</h2>
+      <ul class="objectives">
+        {% for objetivo in site.empresa.objetivos %}
+        <li>
+          <h3>{{ objetivo.titulo }}</h3>
+          <p>{{ objetivo.descripcion }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section id="contacto" class="section wrap">
+      <div class="contact">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Solicita una cotización</h2>
+          <p>Comparte la ubicación y el tipo de instalación para iniciar tu cotización.</p>
+          <a class="button" href="{{ whatsapp }}" target="_blank" rel="noopener">Abrir WhatsApp</a>
+          {% if site.demo %}<p class="demo-note">El enlace abre un chat con un mensaje sugerido. Tú decides cuándo enviarlo.</p>{% endif %}
+        </div>
+        <address>
+          <span>Teléfono</span>
+          <a href="tel:{{ site.contacto.telefono }}">{{ site.contacto.telefono_visible }}</a>
+          <span>Correo</span>
+          <a href="mailto:{{ site.contacto.correo }}">{{ site.contacto.correo }}</a>
+          <span>Ubicación</span>
+          <strong>{{ site.contacto.ubicacion }}</strong>
+        </address>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <a href="#inicio">{{ site.marca }}</a>
+    {% if site.demo %}<span>Demo para presentación</span>{% endif %}
+  </footer>
+  <details class="whatsapp-widget">
+    <summary>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.5 11.6a8.5 8.5 0 0 1-12.8 7.3L4 20l1.1-3.7a8.5 8.5 0 1 1 15.4-4.7Z"/>
+        <path d="M9 8.5c-.7.2-.9.9-.6 1.7a7.6 7.6 0 0 0 4.8 4.7c.8.2 1.5 0 1.8-.7l.3-.7-2.1-1-.7.8a5.3 5.3 0 0 1-2.5-2.5l.7-.7-1-2.1Z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </summary>
+    <div class="whatsapp-panel">
+      <strong>Cotiza con {{ site.marca }}</strong>
+      <p>Cuéntanos qué necesitas proteger y en qué ciudad se encuentra tu instalación.</p>
+      <a class="button" href="{{ whatsapp }}" target="_blank" rel="noopener">Abrir chat en WhatsApp</a>
+    </div>
+  </details>
+</body>
+</html>

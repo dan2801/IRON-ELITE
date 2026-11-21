@@ -1,0 +1,54 @@
+{
+  "marca": "Iron Elite",
+  "demo": true,
+  "portada": {
+    "titulo": "Seguridad privada para tu empresa.",
+    "descripcion": "Refuerza la vigilancia de tus instalaciones con guardias de seguridad. Cuéntanos dónde operas y qué áreas necesitas cubrir para solicitar una cotización.",
+    "imagen": "img/portada.png",
+    "logo": "img/escudo-iron-elite.svg"
+  },
+  "servicios": [
+    {
+      "icono": "escudo",
+      "titulo": "Guardias de seguridad",
+      "descripcion": "Personal de vigilancia para instalaciones comerciales, corporativas e industriales."
+    },
+    {
+      "icono": "acceso",
+      "titulo": "Control de accesos",
+      "descripcion": "Recepción y registro de visitantes, proveedores y vehículos en puntos de entrada."
+    },
+    {
+      "icono": "ronda",
+      "titulo": "Vigilancia de instalaciones",
+      "descripcion": "Recorridos preventivos y reporte de incidencias según las necesidades del sitio."
+    }
+  ],
+  "empresa": {
+    "titulo": "Quiénes somos",
+    "descripcion": "Iron Elite es una empresa de seguridad privada de El Salto, Tepeji. Ofrecemos servicios de guardias para empresas que buscan reforzar la vigilancia y el control de sus instalaciones.",
+    "proposito": "Nuestro objetivo es ayudar a prevenir incidentes y mantener informado a tu equipo sobre lo que ocurre en sus instalaciones.",
+    "objetivos": [
+      {
+        "titulo": "Prevenir incidentes",
+        "descripcion": "Mantener presencia en puntos clave y ayudar a detectar situaciones que requieren atención."
+      },
+      {
+        "titulo": "Ordenar los accesos",
+        "descripcion": "Apoyar el control de entradas y salidas de personal, visitantes y proveedores."
+      },
+      {
+        "titulo": "Comunicar incidencias",
+        "descripcion": "Dar aviso oportuno a los responsables de la instalación para facilitar el seguimiento."
+      }
+    ]
+  },
+  "contacto": {
+    "telefono_visible": "56 3530 1404",
+    "telefono": "+525635301404",
+    "whatsapp": "525635301404",
+    "correo": "ironelite86@gmail.com",
+    "ubicacion": "El Salto, Tepeji, México",
+    "mensaje_whatsapp": "Hola, Iron Elite. Me interesa cotizar un servicio de seguridad privada."
+  }
+}
